@@ -12,13 +12,10 @@ namespace coding_events_practice.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            
             //Events.Add("Code With Pride", "Gigs from all over the world meeting to code with Daryn");
             //Events.Add("Apple WWDC", "Coders from the Reston area meeting to code with Daryn");
             //Events.Add("Strange Loop", "Coders from Maryland meeting to code with Daryn");
-
             ViewBag.events = Events;
-
             return View();
         }
         [HttpGet]
