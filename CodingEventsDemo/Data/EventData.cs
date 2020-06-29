@@ -7,30 +7,30 @@ namespace CodingEventsDemo.Data
 {
     public class EventData
     {
-        static private Dictionary<int, Event> Events = new Dictionary<int, Event>();
+        static private Dictionary<int, Event> Event = new Dictionary<int, Event>();
 
         // GetAll
         public static IEnumerable<Event> GetAll()
         {
-            return Events.Values;
+            return Event.Values;
         }
 
         // Add
         public static void Add(Event newEvent)
         {
-            Events.Add(newEvent.Id, newEvent);
+            Event.Add(newEvent.Id, newEvent);
         }
 
         // Remove
         public static void Remove(int id)
         {
-            Events.Remove(id);
+            Event.Remove(id);
         }
 
         // GetById
         public static Event GetById(int id)
         {
-            return Events[id];
+            return Event[id];
         }
     }
 }

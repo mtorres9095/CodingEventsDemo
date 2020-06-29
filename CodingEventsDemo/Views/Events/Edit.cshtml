@@ -1,18 +1,36 @@
-﻿<form method="post" action="/events/edit">
-    <div class="form-group">
-        <label>
-            Name
-            <input class="form-control" type="text" name="name" value="@ViewBag.eventToEdit.Name" />
-        </label>
-    </div>
-    <div class="form-group">
-        <label>
-            Description
-            <input class="form-control" type="text" name="description" value="@ViewBag.eventToEdit.Description" />
-        </label>
-    </div>
+﻿    <form method="post" action="/events/edit">
+        <div class="form-group">
+            <label>
+                Name
+                <input class="form-control" type="text" name="name" value="@ViewBag.edit.Name" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Description
+                <input class="form-control" type="text" name="description" value="@ViewBag.edit.Description" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                ContactEmail
+                <input class="form-control" type="text" name="contactEmail" value="@ViewBag.edit.ContactEmail" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                EventLocation
+                <input class="form-control" type="text" name="eventLocation" value="@ViewBag.edit.EventLocation" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                NumberOfAttendees
+                <input class="form-control" type="number" name="numberOfAttendees" value="@ViewBag.edit.NumberOfAttendees" />
+            </label>
+            <input type="hidden" name="id" value="@ViewBag.edit.Id" />
+        </div>
+        
 
-    <input type="hidden" name="id" value="@ViewBag.eventToEdit.Id" />
-
-    <input class="btn btn-primary" type="submit" value="Confirm Changes" />
-</form>
+        <input class="btn btn-primary" type="submit" value="Confirm Changes" />
+    </form>

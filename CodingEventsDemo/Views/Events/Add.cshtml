@@ -19,5 +19,15 @@
         <input asp-for="ContactEmail" />
         <span asp-validation-for="ContactEmail"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="EventLocation">Event Location</label>
+        <input asp-for="EventLocation" />
+        <span asp-validation-for="EventLocation"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumberOfAttendees">Number Of Attendees</label>
+        <input asp-for="NumberOfAttendees" />
+        <span asp-validation-for="NumberOfAttendees"></span>
+    </div>
     <input type="submit" value="Add Event" />
 </form>

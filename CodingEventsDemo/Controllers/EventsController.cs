@@ -37,7 +37,9 @@ namespace coding_events_practice.Controllers
                 {
                     Name = addEventViewModel.Name,
                     Description = addEventViewModel.Description,
-                    ContactEmail = addEventViewModel.ContactEmail
+                    ContactEmail = addEventViewModel.ContactEmail,
+                    EventLocation = addEventViewModel.EventLocation,
+                    NumberOfAttendees = addEventViewModel.NumberOfAttendees
                 };
 
                 EventData.Add(newEvent);
@@ -45,6 +47,28 @@ namespace coding_events_practice.Controllers
             }
             return View(addEventViewModel);
             
+        }
+
+        [HttpGet("/Events/Edit/{eventId}")]
+        public IActionResult Edit(int eventId)
+        {
+            ViewBag.edit = EventData.GetById(eventId);
+            return View();
+        }
+
+        [HttpPost("/Events/Edit")]
+        public IActionResult SubmitEditEventForm(int id, string name, string description, string contactEmail, string eventLocation, int numberOfAttendees)
+        {
+
+            Event newEdit = EventData.GetById(id);
+
+            newEdit.Name = name;
+            newEdit.Description = description;
+            newEdit.ContactEmail = contactEmail;
+            newEdit.EventLocation = eventLocation;
+            newEdit.NumberOfAttendees = numberOfAttendees;
+
+            return Redirect("/Events");
         }
 
         public IActionResult Delete()
