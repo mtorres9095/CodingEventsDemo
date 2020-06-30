@@ -11,6 +11,7 @@ namespace CodingEventsDemo.Models
         public string EventLocation { get; set; }
         public int NumberOfAttendees { get; set; }
 
+        public EventType Type { get; set; }
         public int Id { get; }
         static private int nextId = 1;
 
