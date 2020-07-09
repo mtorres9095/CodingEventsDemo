@@ -1,17 +1,21 @@
-﻿namespace CodingEventsDemo.Models
+﻿using System.Collections.Generic;
+
+namespace CodingEventsDemo.Models
 {
     public class EventCategory 
     {
         public string Name { get; set; }
         public int Id { get; set; }
 
-        public EventCategory()
-        {
-        }
-
+        public List<Event> events { get; set; }
+        
         public EventCategory(string name)
         {
             Name = name;
+        }
+
+        public EventCategory()
+        {
         }
     }
 }

@@ -35,13 +35,13 @@ namespace CodingEventsDemo.Controllers
         }
 
         //Post: EventCategory/Create
-        [HttpPost]
+        [HttpPost] //add ("EventCategory/Create")
         public IActionResult Create(AddEventCategoryViewModel viewModel)
         // public IActionResult ProcessCreateEventCategoryForm(AddEventCategoryViewModel addEventCategoryViewModel)
          {
                 if (ModelState.IsValid)
                 {
-                    EventCategory eventCategory = new EventCategory
+                    EventCategory eventCategory = new EventCategory()
                     //EventCategory newEventCategory = new EventCategory // eventCategory for new...
                     {
                         

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using RequiredAttribute = CodingEventsDemo.Models.RequiredAttribute;
 
 namespace CodingEventsDemo.ViewModels
 {
@@ -23,20 +24,29 @@ namespace CodingEventsDemo.ViewModels
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Event must be between 2 and 50 characters.")]
         public string EventLocation { get; set; }
 
-        [Range(0,100000, ErrorMessage = "Number of Attendees must be between 0 and 100,000.")]
+        [Range(0, 100000, ErrorMessage = "Number of Attendees must be between 0 and 100,000.")]
         public int NumberOfAttendees { get; set; }
+        [Required(ErrorMessage = "Category is required")]
+       
+        public int CategoryId { get; set; }
 
-        public EventType Type { get; set; }
+        public List<SelectListItem> Categories { get; set; }
 
-        public List<SelectListItem> EventTypes { get; set; } = new List<SelectListItem>
-        {
-            new SelectListItem(EventType.Conference.ToString(), ((int)EventType.Conference).ToString()),
-            new SelectListItem(EventType.Meetup.ToString(), ((int)EventType.Meetup).ToString()),
-            new SelectListItem(EventType.Workshop.ToString(), ((int)EventType.Workshop).ToString()),
-            new SelectListItem(EventType.Social.ToString(), ((int)EventType.Social).ToString()),
-        };
-        // <option value="0">Conference<option>
+        public AddEventViewModel(List<EventCategory> categories)  {
+            Categories = new List<SelectListItem>();
 
+            foreach (var category in categories)
+            {
+                Categories.Add(
+                    new SelectListItem
+                    {
+                        Value = category.Id.ToString(),
+                        Text = category.Name
+                    }
+                    ); ;
+            }
 
+        }
+        public AddEventViewModel()  { }
     }
 }

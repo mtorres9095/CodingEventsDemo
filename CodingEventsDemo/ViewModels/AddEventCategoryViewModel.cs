@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using RequiredAttribute = CodingEventsDemo.Models.RequiredAttribute;
 
 namespace CodingEventsDemo.ViewModels
 {
